@@ -6,6 +6,7 @@ const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const userChoice_span = document.getElementById("user-choice");
 const computerChoice_span = document.getElementById("computer-choice");
+const result_span = document.getElementById("result")
 
 function computerPlay(){
     let computerMove = ["rock","paper","scissor"];
@@ -19,9 +20,11 @@ function computerPlay(){
 
 const computerSelection = computerPlay()
 console.log(computerSelection);
-const playerSelection = prompt("Choose rock,paper,or scissor");
 
-function playerOne (playerSelection){
+
+
+function playerOne (){
+    let playerSelection = prompt("Choose rock,paper,or scissor");
     let playerOne = playerSelection.trim().toLowerCase();
     if( playerOne === "rock" || 
         playerOne === "paper" || 
@@ -33,41 +36,51 @@ function playerOne (playerSelection){
            alert("Your move is invalid")
         }
     }       
-const playerMove = playerOne(playerSelection)
+const playerMove = playerOne()
+
+
 
 function results(playerMove,computerSelection){
-        
+            
     if(playerMove === computerSelection){
-        alert("IT'S A TIE")} 
+        result = "IT'S A TIE"} 
         
         
         if(playerMove ==="rock" && computerSelection ==="scissor"){
-            alert("USER WINS");
+            result = "USER WINS"
             userScore++
+            userScore_span.innerHTML = userScore;
         }
         if(playerMove ==="paper" && computerSelection ==="rock"){
-            alert("USER WINS");
+            result = "USER WINS"
             userScore++
+            userScore_span.innerHTML = userScore;
         } 
         if(playerMove ==="scissor" && computerSelection ==="paper"){
-            alert("USER WINS");
+            result = "USER WINS"
             userScore++
+            userScore_span.innerHTML = userScore;
         }
         
 
         if(playerMove ==="paper" && computerSelection ==="scissor"){
-            alert("USER LOSES");
-                
+            result = "USER LOSES"
+            computerScore++
+            computerScore_span.innerHTML = computerScore;     
             }
         if(playerMove ==="scissor" && computerSelection ==="rock"){
-            alert("USER LOSES");
-                
+            result = "USER LOSES"
+            computerScore++
+            computerScore_span.innerHTML = computerScore;     
             } 
         if(playerMove ==="rock" && computerSelection ==="paper"){
-            alert("USER LOSES");
-                 
+            result = "USER LOSES"
+            computerScore++
+            computerScore_span.innerHTML = computerScore;     
             }
-    }   
-    
+            
+            result_span.innerHTML = result;    
+             
+        }
+         
     console.log(results(playerMove,computerSelection));
-    
